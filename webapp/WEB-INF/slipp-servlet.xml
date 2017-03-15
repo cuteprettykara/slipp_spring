@@ -11,9 +11,12 @@
 	<context:component-scan base-package="net.slipp.web" />
 
 	<mvc:annotation-driven />
+	
+	<mvc:resources location="/images/" mapping="/images/**" />
+	<mvc:resources location="/stylesheets/" mapping="/stylesheets/**" />
+	<mvc:resources location="/javascripts/" mapping="/javascripts/**" />
 
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-		p:prefix="/"
-		p:suffix=".jsp"/>
+		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"/>
 
 </beans>
