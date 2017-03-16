@@ -13,10 +13,10 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a href="/">Home</a></li>
-              <li><a href="/login.jsp">로그인</a></li>
-              <li><a href="/users/createForm">회원가입</a></li> 
-              <li><a href="/users/logout">로그아웃</a></li>
-              <li><a href="/users/updateForm">개인정보수정</a></li>              
+              <li><a href="">로그인</a></li>
+              <li><a href="/users/form">회원가입</a></li> 
+              <li><a href="">로그아웃</a></li>
+              <li><a href="">개인정보수정</a></li>              
             </ul>
           </div>
         </div>
