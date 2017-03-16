@@ -8,6 +8,8 @@
 
 	<context:property-placeholder location="classpath*:application-properties.xml"/>
 	
+	<context:annotation-config />
+	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		p:driverClassName="${database.driverClassName}"
 		p:url="${database.url}"

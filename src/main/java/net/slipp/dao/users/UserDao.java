@@ -23,6 +23,7 @@ public class UserDao extends JdbcDaoSupport{
 		ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
 		populator.addScript(new ClassPathResource("slipp.sql"));
 		DatabasePopulatorUtils.execute(populator, super.getDataSource());
+		log.debug("database successfully initialized!");
 	}
 
 	public User findById(String userId) {
