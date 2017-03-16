@@ -9,8 +9,13 @@
 	<context:property-placeholder location="classpath*:application-properties.xml"/>
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		p:driverClassName="database.driverClassName"
-		p:url="database.url"
-		p:username="database.username"
-		p:password="database.password" />
+		p:driverClassName="${database.driverClassName}"
+		p:url="${database.url}"
+		p:username="${database.username}"
+		p:password="${database.password}" 
+	/>
+	
+	<bean id="userDao" class="net.slipp.dao.users.UserDao" p:dataSource-ref="dataSource" />
+		
+		
 </beans>
