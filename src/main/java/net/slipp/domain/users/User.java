@@ -1,9 +1,22 @@
 package net.slipp.domain.users;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Email;
+
 public class User {
+	@NotNull @Min(4) @Max(12)
 	private String userId;
+	
+	@NotNull @Min(4) @Max(12)
 	private String password;
+	
+	@NotNull
 	private String name;
+	
+	@Email
 	private String email;
 	
 	public User() {
