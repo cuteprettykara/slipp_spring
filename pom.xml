@@ -5,7 +5,7 @@
 	<artifactId>slipp_spring</artifactId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
-
+	
 	<properties>
 		<org.springframework.version>4.3.7.RELEASE</org.springframework.version>
 	</properties>
