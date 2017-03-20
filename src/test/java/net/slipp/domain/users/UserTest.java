@@ -51,4 +51,21 @@ public class UserTest {
 		 authenticate = new Authenticate("prettykara", "2222");
 		 assertFalse(user.matchMassword(authenticate));
 	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void updateWhenMismatchUserId() throws Exception {
+		User user = new User("prettykara", "1111", "프리티카라", "prettykara@gmail.com");
+		User updateUser = new User("pretty", "1111", "프리티카라test", "prettykaratest@gmail.com");
+		
+		User updatedUser = user.update(updateUser);
+	}
+	
+	@Test
+	public void update() throws Exception {
+		User user = new User("prettykara", "1111", "프리티카라", "prettykara@gmail.com");
+		User updateUser = new User("prettykara", "1111", "프리티카라test", "prettykaratest@gmail.com");
+		
+		User updatedUser = user.update(updateUser);
+		assertThat(updatedUser, is(updateUser));
+	}
 }

@@ -66,6 +66,14 @@ public class User {
 		
 		return this.userId.equals(userId);
 	}
+	
+	public User update(User updateUser) {
+		if (!matchUserId(updateUser.userId)) {
+			throw new IllegalArgumentException();
+		}
+		
+		return new User(this.userId, updateUser.password, updateUser.name, updateUser.email);
+	}
 
 	@Override
 	public String toString() {
@@ -108,4 +116,6 @@ public class User {
 			return false;
 		return true;
 	}
+
+	
 }
