@@ -2,6 +2,7 @@ package net.slipp.web.users;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -56,7 +57,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("/login")
-	public String login(@Valid Authenticate authenticate, BindingResult bindingResult, Model model) {
+	public String login(@Valid Authenticate authenticate, BindingResult bindingResult, HttpSession session, Model model) {
 		if (bindingResult.hasErrors()) {
 			return "users/login";
 		}
@@ -73,8 +74,14 @@ public class UserController {
 		}
 		
 		// TODO 세션에 사용자 정보 저장
+		session.setAttribute("userId", user.getUserId());
 		
-		
-		return "users/login";
+		return "redirect:/";
+	}
+	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("userId");
+		return "redirect:/";
 	}
 }
