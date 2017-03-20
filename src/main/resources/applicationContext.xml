@@ -15,18 +15,18 @@
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="mapperLocations" value="classpath:net/slipp/dao/users/UserMapper.xml" />
+		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
 	</bean>
 
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
 
-	<!-- <bean id="userDao" class="net.slipp.dao.users.JdbcUserDao"
-		p:dataSource-ref="dataSource" /> -->
-		
 	<bean id="userDao" class="net.slipp.dao.users.MyBatisUserDao">
-		<property name="sqlSession" ref="sqlSession"/>
-		<property name="dataSource" ref="dataSource"/>
-	</bean> 
+		<property name="sqlSession" ref="sqlSession" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	
+
 </beans>

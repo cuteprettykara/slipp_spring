@@ -2,9 +2,11 @@ package net.slipp.domain.users;
 
 import javax.validation.constraints.Size;
 
+import org.apache.ibatis.type.Alias;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
+@Alias("user")
 public class User {
 	@NotEmpty @Size(min=4, max=12)
 	private String userId;
@@ -77,7 +79,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", name=" + name + ", email=" + email + "]";
+		return "User [userId=" + userId + ", password=" + password + ", name=" + name + ", email=" + email + "]";
 	}
 
 	@Override
