@@ -60,6 +60,12 @@ public class User {
 //		return this.password.equals(authenticate.getPassword());
 		return authenticate.matchPassword(this.password);
 	}
+	
+	public boolean matchUserId(String userId) {
+		if (userId == null) return false;
+		
+		return this.userId.equals(userId);
+	}
 
 	@Override
 	public String toString() {

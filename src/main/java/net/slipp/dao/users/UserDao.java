@@ -52,4 +52,9 @@ public class UserDao extends JdbcDaoSupport{
 		String sql = "insert into USERS values(?,?,?,?)";
 		super.getJdbcTemplate().update(sql, user.getUserId(), user.getPassword(), user.getName(), user.getEmail());
 	}
+
+	public void update(User user) {
+		String sql = "update USERS set password=?, name=?, email=? where userId=?";
+		super.getJdbcTemplate().update(sql, user.getPassword(), user.getName(), user.getEmail(), user.getUserId());
+	}
 }
