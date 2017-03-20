@@ -18,9 +18,4 @@
 			</dataSource>
 		</environment>
 	</environments>
-	
-	
-	<mappers>
-		<mapper resource="net/slipp/dao/users/UserMapper.xml" />
-	</mappers>
 </configuration>

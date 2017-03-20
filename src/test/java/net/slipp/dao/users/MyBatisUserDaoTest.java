@@ -1,7 +1,7 @@
 package net.slipp.dao.users;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,8 +15,8 @@ import net.slipp.domain.users.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:/applicationContext.xml")
-public class UserDaoTest {
-	private static final Logger log = LoggerFactory.getLogger(UserDaoTest.class);
+public class MyBatisUserDaoTest {
+	private static final Logger log = LoggerFactory.getLogger(JdbcUserDaoTest.class);
 
 	@Autowired
 	private UserDao userDao;
@@ -34,4 +34,5 @@ public class UserDaoTest {
 		User actual = userDao.findById(user.getUserId());
 		assertThat(actual, is(user));
 	}
+
 }
