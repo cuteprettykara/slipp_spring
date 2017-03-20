@@ -53,6 +53,13 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public boolean matchMassword(Authenticate authenticate) {
+		if (this.password == null) return false;
+		
+//		return this.password.equals(authenticate.getPassword());
+		return authenticate.matchPassword(this.password);
+	}
 
 	@Override
 	public String toString() {
