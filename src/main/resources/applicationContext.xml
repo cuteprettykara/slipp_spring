@@ -8,6 +8,10 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
+	<context:component-scan base-package="net.slipp.dao">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	 
 	<context:property-placeholder location="classpath*:application-properties.xml" />
 
 	<context:annotation-config />
@@ -23,11 +27,6 @@
 
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
-	</bean>
-
-	<bean id="userDao" class="net.slipp.dao.users.MyBatisUserDao">
-		<property name="sqlSession" ref="sqlSession" />
-		<!-- <property name="dataSource" ref="dataSource" /> -->
 	</bean>
 
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
