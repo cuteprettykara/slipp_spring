@@ -10,11 +10,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.transaction.annotation.Transactional;
 
 import net.slipp.domain.users.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:/applicationContext.xml")
+@TransactionConfiguration(transactionManager="transactionManager", defaultRollback=true)
+@Transactional
 public class UserDaoTest {
 	private static final Logger log = LoggerFactory.getLogger(UserDaoTest.class);
 
@@ -30,6 +34,7 @@ public class UserDaoTest {
 	@Test
 	public void create() throws Exception {
 		User user = new User("prettykara2", "2222", "prettykara2", "prettykara2@gmail.com");
+//		User user = new User("prettykara", "11111", "prettykara", "prettykara@gmail.com");
 		userDao.create(user);
 		User actual = userDao.findById(user.getUserId());
 		assertThat(actual, is(user));

@@ -32,10 +32,10 @@ public class MyBatisTest {
 		sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 		
 		// DB 생성 및 초기화
-		ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
+/*		ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
 		populator.addScript(new ClassPathResource("slipp.sql"));
 		DatabasePopulatorUtils.execute(populator, getDataSource());
-		log.debug("database successfully initialized!");
+		log.debug("database successfully initialized!");*/
 	}
 	
 	private DataSource getDataSource() {
@@ -61,6 +61,7 @@ public class MyBatisTest {
 	public void insert() throws Exception {
 		try (SqlSession session = sqlSessionFactory.openSession()) {
 			User user = new User("prettykara2", "2222", "prettykara2", "prettykara2@gmail.com");
+//			User user = new User("prettykara", "11111", "prettykara", "prettykara@gmail.com");
 			int cnt = session.insert("UserMapper.create", user);
 			log.debug("cnt : {}", cnt);
 			
