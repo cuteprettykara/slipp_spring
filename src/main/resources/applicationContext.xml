@@ -24,7 +24,7 @@
 
 	<bean id="userDao" class="net.slipp.dao.users.MyBatisUserDao">
 		<property name="sqlSession" ref="sqlSession" />
-		<property name="dataSource" ref="dataSource" />
+		<!-- <property name="dataSource" ref="dataSource" /> -->
 	</bean>
 
 	
